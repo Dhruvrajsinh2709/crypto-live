@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoLive • Market & News</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .price-up { color: #22c55e; }
+    .price-down { color: #ef4444; }
+    .coin-row:hover { background-color: #1f2937; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+  <div class="max-w-7xl mx-auto p-4">
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-8">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-chart-line text-4xl text-yellow-500"></i>
+        <h1 class="text-4xl font-bold tracking-tight">CryptoLive</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <input id="search" 
+               type="text" 
+               placeholder="Search coins..." 
+               class="bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 w-80 focus:outline-none focus:border-yellow-500">
+        <button onclick="refreshData()" 
+                class="bg-gray-800 hover:bg-gray-700 px-5 py-3 rounded-xl flex items-center gap-2">
+          <i class="fa-solid fa-rotate"></i> Refresh
+        </button>
+      </div>
+    </header>
+
+    <!-- Global Stats -->
+    <div id="global-stats" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"></div>
+
+    <!-- Market Table -->
+    <div class="bg-gray-900 rounded-3xl overflow-hidden mb-8">
+      <div class="p-6 border-b border-gray-800 flex justify-between items-center">
+        <h2 class="text-2xl font-semibold">Live Market</h2>
+        <span id="last-updated" class="text-sm text-gray-500"></span>
+      </div>
+      <table class="w-full">
+        <thead>
+          <tr class="bg-gray-950 text-gray-400 text-left">
+            <th class="p-6 font-medium">#</th>
+            <th class="p-6 font-medium">Coin</th>
+            <th class="p-6 font-medium text-right">Price</th>
+            <th class="p-6 font-medium text-right">24h Change</th>
+            <th class="p-6 font-medium text-right">Market Cap</th>
+            <th class="p-6 font-medium text-right">Volume (24h)</th>
+          </tr>
+        </thead>
+        <tbody id="coins-body" class="text-sm"></tbody>
+      </table>
+    </div>
+
+    <!-- News Section -->
+    <div class="bg-gray-900 rounded-3xl p-6">
+      <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+        <i class="fa-solid fa-newspaper"></i> Latest Crypto News
+      </h2>
+      <div id="news-container" class="grid md:grid-cols-2 gap-6"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
